@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNewStyle } from '../hooks/useNewStyle';
 
+import Player from './Player';
+
 const PlayerList = props => {
     //this is the state value used to change the style. It is defaulted at false where the background is white. When it is set to true, it goes through the custom hook, adds or removes the class of style1 then it goes through the local storage hook and is saved into there.
     const [newStyle, setNewStyle] = useNewStyle('Style 1', false)
@@ -19,10 +21,7 @@ const PlayerList = props => {
         <div className='card-container'>
             {props.players.map(e => {
                 return (
-                    <div className='card'>
-                    <h3>{e.name}</h3>
-                    <h4>Country: {e.country}</h4>
-                    </div>
+                    <Player key={e.id} name={e.name} country={e.country}/> 
                 )
             })}
         </div>

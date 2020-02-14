@@ -10,9 +10,19 @@
 
 .card {
   border: 1px solid grey;
-  background-color: aqua;
+  background-color: lightgrey;
   width: 200px;
   height: 200px;
   padding:1%;
   margin:1%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.style1 {
+  background-image: url('https://images.unsplash.com/photo-1557616223-c021d2a8e0f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import PlayerList from './components/PlayerList';
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super();
+    //this state sets the data retrieved from the API
+    this.state = {
+      players: [],
+    }
+  }
+
+  //fetching the server data and setting it to state
+  componentDidMount() {
+    axios.get('http://localhost:5000/api/players').then(res => {
+      // console.log(res.data)
+      this.setState({
+        players: res.data
+      })
+    }).catch(error => {
+      console.log('error', error)
+    })
+  }
+  
+  //passes the state into the PlayerList components
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PlayerList players={this.state.players}/>
     </div>
   );
+  }
 }
 
 export default App;

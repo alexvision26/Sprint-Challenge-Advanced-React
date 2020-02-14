@@ -5,11 +5,13 @@ import PlayerList from './components/PlayerList';
 class App extends React.Component {
   constructor() {
     super();
+    //this state sets the data retrieved from the API
     this.state = {
       players: [],
     }
   }
 
+  //fetching the server data and setting it to state
   componentDidMount() {
     axios.get('http://localhost:5000/api/players').then(res => {
       // console.log(res.data)
@@ -21,6 +23,7 @@ class App extends React.Component {
     })
   }
   
+  //passes the state into the PlayerList components
   render() {
   return (
     <div className="App">
